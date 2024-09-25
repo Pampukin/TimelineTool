@@ -6,13 +6,13 @@ using UnityEngine.Timeline;
 public abstract class AbstractFireMarker : Marker, INotification
 {
     protected GameObject _bullet = default;
-    protected FireData _fireData = default;
-    
+    protected BulletData _bulletData = default;
+
     public PropertyName id { get; }
 
     public virtual void Fire()
     {
-        if (_bullet == default || _fireData == default)
+        if (_bullet == default || _bulletData == default)
         {
             _Load();
         }
@@ -20,13 +20,15 @@ public abstract class AbstractFireMarker : Marker, INotification
 
     private void _Load()
     {
-        var handleBullet = Addressables.LoadAssetAsync<GameObject>("Bullet"); 
-        var handleData = Addressables.LoadAssetAsync<FireData>("FireData"); 
-        
+        var handleBullet = Addressables.LoadAssetAsync<GameObject>("Bullet");
+        var handleData = Addressables.LoadAssetAsync<BulletData>("FireData");
+
         _bullet = handleBullet.WaitForCompletion();
-        _fireData = handleData.WaitForCompletion();
-        
+        _bulletData = handleData.WaitForCompletion();
+
         Addressables.Release(handleBullet);
         Addressables.Release(handleData);
     }
+
+    public abstract void Copy(ref AbstractFireMarker copyMaker, AbstractFireMarker origin);
 }

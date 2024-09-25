@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0605512ab89cfda449d317d5e1fe87c0, type: 3}
-  m_Name: FireData
+  m_Name: BulletData
   m_EditorClassIdentifier: 
   _speed: 3
-  _power: 0
+  _curvePower: 2

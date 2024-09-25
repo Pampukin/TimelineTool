@@ -344,52 +344,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &601053357
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 601053359}
-  - component: {fileID: 601053358}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &601053358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601053357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c1273e16c043bb4b993bd1387d0b81b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playableDirector: {fileID: 7853207544662456974, guid: 1ab0f56a1016da8479d2e0a1a2ddb2fc, type: 3}
-  _fireGroup: 1
---- !u!4 &601053359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601053357}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +565,6 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -6539474298649518217, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
     value: {fileID: 7853207544612328220}
-  - key: {fileID: -807163831137157641, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
-    value: {fileID: 7853207544612328220}
   - key: {fileID: -3025296209079728096, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
     value: {fileID: 7853207544612328220}
   - key: {fileID: 6731225122026242638, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
@@ -787,7 +739,9 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 1549324793417131822, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
+  - key: {fileID: 0}
+    value: {fileID: 7853207544612328220}
+  - key: {fileID: 3377298521633361988, guid: 2c8990ff9230415409a78f8bb361d314, type: 2}
     value: {fileID: 7853207544612328220}
   m_ExposedReferences:
     m_References: []
@@ -810,5 +764,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 676591871}
-  - {fileID: 601053359}
   - {fileID: 2594961337052893033}

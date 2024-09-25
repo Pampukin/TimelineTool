@@ -7,6 +7,8 @@ public class FireGroupBehaviour : PlayableBehaviour
     public FireGroupEnum FireGroup;
     public PlayableDirector PlayableDirector;
 
+    private PlayableDirector _newDirector;
+
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
         var graph = playable.GetGraph();
@@ -30,10 +32,8 @@ public class FireGroupBehaviour : PlayableBehaviour
 
         if (targetGroupTrack == null) return;
 
-        var newGraph = PlayableGraph.Create();
-        var newDirector = PlayableDirector;
         var newTimeline = ScriptableObject.CreateInstance<TimelineAsset>();
-        newDirector.playableAsset = newTimeline;
+        PlayableDirector.playableAsset = newTimeline;
 
         // 複製する新しいGroupTrackを作成
         var newGroupTrack = newTimeline?.CreateTrack<GroupTrack>(null, targetGroupTrack.name);
@@ -43,26 +43,24 @@ public class FireGroupBehaviour : PlayableBehaviour
         {
             var newTrack = newTimeline?.CreateTrack(track.GetType(), newGroupTrack, track.name);
 
-            newDirector?.SetGenericBinding(newTrack,newDirector.gameObject.GetComponent<FireReceiver>());
+            PlayableDirector?.SetGenericBinding(newTrack,PlayableDirector.gameObject.GetComponent<FireReceiver>());
 
             foreach (var marker in track.GetMarkers())
             {
-                Debug.Log(marker.ToString());
                 // INotificationをコピー
-                if (marker is INotification notificationMarker)
+                if (marker is AbstractFireMarker fireMarker)
                 {
-                    var newMaker = newTrack.CreateMarker(marker.GetType(), marker.time);
+                    var newMaker = newTrack?.CreateMarker(fireMarker.GetType(), fireMarker.time);
+
+                    if (newMaker is AbstractFireMarker maker)
+                    {
+                        maker.Copy(ref maker, fireMarker);
+                    }
                 }
             }
         }
 
-        newDirector?.RebuildGraph();
-        newDirector?.Play();
-    }
-
-    private void OnDisable()
-    {
-        // PlayableGraphを破棄してリソースを解放
-        //director.playableGraph.Destroy();
+        PlayableDirector?.RebuildGraph();
+        PlayableDirector?.Play();
     }
 }
