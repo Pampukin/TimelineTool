@@ -1,24 +1,38 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Playables;
-using UnityEngine.Timeline;
 
 [System.Serializable]
 public class FireGroupClip : PlayableAsset
 {
     [SerializeField] private FireGroupEnum _fireGroup;
 
-    [SerializeField] private GroupTrack _track;
+    private GameObject _fireInstancePrefab = default;
 
-    private FireGroupBehaviour _fireGroupBehaviour;
-    
     // クリップが再生される際のロジックを設定
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
-        _fireGroupBehaviour = new FireGroupBehaviour
+        // ランタイム時のみ実行するように設定
+        if (!Application.isPlaying)
         {
-            FireGroup = _fireGroup
+            return Playable.Null; // エディタモードでは何もしない
+        }
+
+        if (_fireInstancePrefab == default)
+        {
+            var handleFireInstance = Addressables.LoadAssetAsync<GameObject>("FireInstance");
+            _fireInstancePrefab = handleFireInstance.WaitForCompletion();
+            Addressables.Release(handleFireInstance);
+        }
+
+        var playableDirectorObject = Instantiate(_fireInstancePrefab);
+        var playableDirector = playableDirectorObject.GetComponent<PlayableDirector>();
+        var fireGroupBehaviour = new FireGroupBehaviour
+        {
+            FireGroup = _fireGroup,
+            PlayableDirector = playableDirector
         };
-        
-        return ScriptPlayable<FireGroupBehaviour>.Create(graph, _fireGroupBehaviour);
+
+        return ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
     }
 }
