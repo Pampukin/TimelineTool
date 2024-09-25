@@ -33,6 +33,7 @@
 # JetBrains IDE
 .idea/**/workspace.xml
 .idea/**/tasks.xml
+.idea/
 
 # Gradle cache directory
 .gradle/
