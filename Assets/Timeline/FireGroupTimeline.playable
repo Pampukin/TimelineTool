@@ -35,7 +35,7 @@ MonoBehaviour:
   m_Name: Fire/CurveFire
   m_EditorClassIdentifier: 
   m_Time: 0
-  _direction: 1
+  Direction: 1
 --- !u!114 &-7824587530415243297
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: Fire/CurveFire
   m_EditorClassIdentifier: 
   m_Time: 0.5
-  _direction: 2
+  Direction: 2
 --- !u!114 &-6079321418898680807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: Fire/CurveFire
   m_EditorClassIdentifier: 
   m_Time: 0.16666666666666666
-  _direction: 2
+  Direction: 2
 --- !u!114 &-4457854503875782824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Name: Fire/CurveFire
   m_EditorClassIdentifier: 
   m_Time: 0.6666666666666666
-  _direction: 1
+  Direction: 1
 --- !u!114 &7473005527046508291
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Name: Fire/CurveFire
   m_EditorClassIdentifier: 
   m_Time: 0.3333333333333333
-  _direction: 1
+  Direction: 1
 --- !u!114 &9067580540065046319
 MonoBehaviour:
   m_ObjectHideFlags: 1
