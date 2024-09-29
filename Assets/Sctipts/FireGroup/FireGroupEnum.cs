@@ -4,5 +4,5 @@ public enum FireGroupEnum
     時計回り,
     反時計回り,
     カーブ,
-    加速,
+    Free,
 }
