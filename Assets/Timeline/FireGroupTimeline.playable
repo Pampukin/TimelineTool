@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Version: 3
   m_AnimClip: {fileID: 0}
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -595,7 +595,7 @@ MonoBehaviour:
   - {fileID: 6571868659092841397}
   - {fileID: -6079321418898680807}
   - {fileID: -7724538606095192581}
-  m_FixedDuration: 2.2
+  m_FixedDuration: 2.15
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149fb9ab8239ca7419995326d8dfaaf8, type: 3}
   m_Name: FireGroupClip(Clone)(Clone)
   m_EditorClassIdentifier: 
-  _fireGroup: 3
+  _fireGroup: 4
 --- !u!114 &3131137051343407823
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -968,7 +968,8 @@ MonoBehaviour:
   m_Children: []
   m_Clips: []
   m_Markers:
-    m_Objects: []
+    m_Objects:
+    - {fileID: 9000618198777008429}
 --- !u!114 &7470757479852694194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1061,6 +1062,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0.3333333333333333
   Direction: 1
+--- !u!114 &9000618198777008429
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e407d296ef6caa45a71cb14c78419a4, type: 3}
+  m_Name: Fire/StraightFire
+  m_EditorClassIdentifier: 
+  m_Time: 0.1
 --- !u!114 &9047589365669821115
 MonoBehaviour:
   m_ObjectHideFlags: 1
