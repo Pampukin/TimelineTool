@@ -36,108 +36,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0
   Direction: 1
---- !u!114 &-7824587530415243297
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149fb9ab8239ca7419995326d8dfaaf8, type: 3}
-  m_Name: FireGroupClip
-  m_EditorClassIdentifier: 
-  _fireGroup: 1
---- !u!114 &-7724538606095192581
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8fde61de0e2d6488765acf8eeea3ac, type: 3}
-  m_Name: Fire Group Track
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips:
-  - m_Version: 1
-    m_Start: 1.4666666666666666
-    m_ClipIn: 0
-    m_Asset: {fileID: -7824587530415243297}
-    m_Duration: 0.6333333333333329
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -7724538606095192581}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: FireGroupClip
-  - m_Version: 1
-    m_Start: 0.1
-    m_ClipIn: 0
-    m_Asset: {fileID: 2923683623599970525}
-    m_Duration: 0.6333333333333329
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -7724538606095192581}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: FireGroupClip
-  m_Markers:
-    m_Objects: []
 --- !u!114 &-7506416914539160790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +202,19 @@ MonoBehaviour:
     - {fileID: 2780729838548131153}
     - {fileID: 6557870053794051661}
     - {fileID: 5745955555144040178}
+--- !u!114 &-6363090824042952136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149fb9ab8239ca7419995326d8dfaaf8, type: 3}
+  m_Name: "\u9023\u5C04"
+  m_EditorClassIdentifier: 
+  _fireGroup: 4
 --- !u!114 &-6143897416670288375
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,30 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0.5
   Direction: 2
---- !u!114 &-6079321418898680807
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
-  m_Name: Free
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 1
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children:
-  - {fileID: 6731225122026242638}
-  m_Clips: []
-  m_Markers:
-    m_Objects: []
 --- !u!114 &-5875176391489639210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,6 +449,30 @@ MonoBehaviour:
   m_Name: Fire/StraightFire(Clone)
   m_EditorClassIdentifier: 
   m_Time: 0.5
+--- !u!114 &-259003506283117312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: Free
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 1
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children:
+  - {fileID: 5810620654223220350}
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &-99283680829039065
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,17 +500,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
+  - {fileID: 7695401454920536373}
   - {fileID: 7527419605557203503}
   - {fileID: 6559765079755981892}
   - {fileID: -3386131379199716744}
   - {fileID: 6571868659092841397}
-  - {fileID: -6079321418898680807}
-  - {fileID: -7724538606095192581}
-  m_FixedDuration: 2.15
+  - {fileID: -259003506283117312}
+  m_FixedDuration: 1.49
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
-  m_DurationMode: 1
+  m_DurationMode: 0
   m_MarkerTrack: {fileID: 3269513228896134306}
 --- !u!114 &814541200269877345
 MonoBehaviour:
@@ -676,19 +587,6 @@ MonoBehaviour:
   m_Name: Fire/StraightFire
   m_EditorClassIdentifier: 
   m_Time: 0
---- !u!114 &2923683623599970525
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149fb9ab8239ca7419995326d8dfaaf8, type: 3}
-  m_Name: FireGroupClip(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  _fireGroup: 4
 --- !u!114 &3131137051343407823
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,6 +756,29 @@ MonoBehaviour:
   m_Name: Fire/StraightFire(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Time: 1.2999999999999998
+--- !u!114 &5810620654223220350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3c2de6e3a31e14f93aeebb3c1cf6cb, type: 3}
+  m_Name: Fire Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: -259003506283117312}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &6442551510527432244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -946,30 +867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0.16666666666666666
   Angle: -45
---- !u!114 &6731225122026242638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3c2de6e3a31e14f93aeebb3c1cf6cb, type: 3}
-  m_Name: Fire Track
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: -6079321418898680807}
-  m_Children: []
-  m_Clips: []
-  m_Markers:
-    m_Objects:
-    - {fileID: 9000618198777008429}
 --- !u!114 &7470757479852694194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1021,6 +918,62 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &7695401454920536373
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8fde61de0e2d6488765acf8eeea3ac, type: 3}
+  m_Name: Fire Group Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: -6363090824042952136}
+    m_Duration: 0.5
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 7695401454920536373}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: FireGroupClip
+  m_Markers:
+    m_Objects: []
 --- !u!114 &7895078594796749752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1062,19 +1015,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 0.3333333333333333
   Direction: 1
---- !u!114 &9000618198777008429
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e407d296ef6caa45a71cb14c78419a4, type: 3}
-  m_Name: Fire/StraightFire
-  m_EditorClassIdentifier: 
-  m_Time: 0.1
 --- !u!114 &9047589365669821115
 MonoBehaviour:
   m_ObjectHideFlags: 1

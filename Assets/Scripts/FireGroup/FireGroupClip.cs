@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 [System.Serializable]
 public class FireGroupClip : PlayableAsset
@@ -12,6 +15,28 @@ public class FireGroupClip : PlayableAsset
     // クリップが再生される際のロジックを設定
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
+        var fireGroupTimelineHandle = Addressables.LoadAssetAsync<TimelineAsset>("FireGroupTimeline");
+
+        var fireGroupTimeline = fireGroupTimelineHandle.WaitForCompletion();
+        Addressables.Release(fireGroupTimelineHandle);
+
+        double clipTime = 0;
+        foreach (var track in fireGroupTimeline.GetRootTracks())
+        {
+            if (track.name == _fireGroup.ToString())
+            {
+                foreach (var child in track.GetChildTracks())
+                {
+                    if (child.GetMarkerCount() == 0) break;
+                    
+                    var marker = child.GetMarkers().Last();
+                    clipTime = marker.time;
+                    Debug.Log(clipTime);
+                }
+            }
+        }
+
+
         // ランタイム時のみ実行するように設定
         if (!Application.isPlaying)
         {
