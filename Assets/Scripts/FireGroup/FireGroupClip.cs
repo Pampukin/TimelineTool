@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -28,7 +27,7 @@ public class FireGroupClip : PlayableAsset
                 foreach (var child in track.GetChildTracks())
                 {
                     if (child.GetMarkerCount() == 0) break;
-                    
+
                     var marker = child.GetMarkers().Last();
                     clipTime = marker.time;
                     Debug.Log(clipTime);
@@ -58,6 +57,12 @@ public class FireGroupClip : PlayableAsset
             PlayableDirector = playableDirector
         };
 
-        return ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
+        // Create the ScriptPlayable
+        var playable = ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
+
+        // Set the duration of the clip to clipTime
+        playable.SetDuration(clipTime);
+
+        return playable;
     }
 }
