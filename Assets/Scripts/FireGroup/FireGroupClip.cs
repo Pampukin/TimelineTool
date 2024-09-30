@@ -17,6 +17,12 @@ public class FireGroupClip : PlayableAsset
 
     public double ClipDuration => _clipDuration;
 
+    /// <summary>
+    /// クリップ生成時にデータのロードと実行内容の追加
+    /// </summary>
+    /// <param name="graph"></param>
+    /// <param name="owner"></param>
+    /// <returns></returns>
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
         // ランタイム時のみ実行するように設定
@@ -27,22 +33,40 @@ public class FireGroupClip : PlayableAsset
 
         if (_fireInstancePrefab == default)
         {
-            var handleFireInstance = Addressables.LoadAssetAsync<GameObject>("FireInstance");
-            _fireInstancePrefab = handleFireInstance.WaitForCompletion();
-            Addressables.Release(handleFireInstance);
+            LoadData();
         }
 
+        return ScriptPlayable<FireGroupBehaviour>.Create(graph, SetBehaviour());
+    }
+
+    /// <summary>
+    /// データのロード
+    /// </summary>
+    private void LoadData()
+    {
+        var handleFireInstance = Addressables.LoadAssetAsync<GameObject>("FireInstance");
+        _fireInstancePrefab = handleFireInstance.WaitForCompletion();
+        Addressables.Release(handleFireInstance);
+    }
+
+    /// <summary>
+    /// 具体的な処理内容の設定
+    /// </summary>
+    /// <returns></returns>
+    private FireGroupBehaviour SetBehaviour()
+    {
         var playableDirectorObject = Instantiate(_fireInstancePrefab);
         var playableDirector = playableDirectorObject.GetComponent<PlayableDirector>();
-        var fireGroupBehaviour = new FireGroupBehaviour
+        return new FireGroupBehaviour
         {
             FireGroup = _fireGroup,
             PlayableDirector = playableDirector
         };
-
-        return ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
     }
 
+    /// <summary>
+    /// クリップの時間を設定
+    /// </summary>
     public void LoadDuration()
     {
         var fireGroupTimelineHandle = Addressables.LoadAssetAsync<TimelineAsset>("FireGroupTimeline");

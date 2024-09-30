@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -9,16 +10,16 @@ public class FireGroupBehaviour : PlayableBehaviour
 
     private PlayableDirector _newDirector;
 
-    public override void OnBehaviourPlay(Playable playable, FrameData info)
+    /// <summary>
+    /// 弾幕パターンの取得
+    /// </summary>
+    /// <param name="tracks"></param>
+    /// <returns></returns>
+    private GroupTrack GetTargetTrack(IEnumerable<TrackAsset> tracks)
     {
-        var graph = playable.GetGraph();
-        var director = graph.GetResolver() as PlayableDirector;
-        var timeline = director?.playableAsset as TimelineAsset;
-
-        if (timeline == null) return;
         GroupTrack targetGroupTrack = null;
 
-        foreach (var track in timeline.GetRootTracks())
+        foreach (var track in tracks)
         {
             if (track is GroupTrack groupTrack)
             {
@@ -29,16 +30,19 @@ public class FireGroupBehaviour : PlayableBehaviour
                 }
             }
         }
+        return targetGroupTrack;
+    }
 
-        if (targetGroupTrack == null) return;
-
-        var newTimeline = ScriptableObject.CreateInstance<TimelineAsset>();
+    /// <summary>
+    /// 実行用のタイムラインの作成
+    /// </summary>
+    /// <param name="newTimeline"></param>
+    /// <param name="targetGroupTrack"></param>
+    private void DuplicateTimeline(ref TimelineAsset newTimeline, GroupTrack targetGroupTrack)
+    {
         PlayableDirector.playableAsset = newTimeline;
-
-        // 複製する新しいGroupTrackを作成
         var newGroupTrack = newTimeline?.CreateTrack<GroupTrack>(null, targetGroupTrack.name);
 
-        // 元のGroupTrack内のすべてのトラックをコピー
         foreach (var track in targetGroupTrack.GetChildTracks())
         {
             var newTrack = newTimeline?.CreateTrack(track.GetType(), newGroupTrack, track.name);
@@ -59,6 +63,21 @@ public class FireGroupBehaviour : PlayableBehaviour
                 }
             }
         }
+    }
+
+    public override void OnBehaviourPlay(Playable playable, FrameData info)
+    {
+        var graph = playable.GetGraph();
+        var director = graph.GetResolver() as PlayableDirector;
+        var timeline = director?.playableAsset as TimelineAsset;
+        if (timeline == null) return;
+
+        var targetGroupTrack = GetTargetTrack(timeline.GetRootTracks());
+        if (targetGroupTrack == null) return;
+
+        var newTimeline = ScriptableObject.CreateInstance<TimelineAsset>();
+
+        DuplicateTimeline(ref newTimeline, targetGroupTrack);
 
         PlayableDirector?.RebuildGraph();
         PlayableDirector?.Play();
