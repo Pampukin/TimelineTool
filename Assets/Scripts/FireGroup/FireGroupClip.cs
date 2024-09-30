@@ -9,33 +9,16 @@ public class FireGroupClip : PlayableAsset
 {
     [SerializeField] private FireGroupEnum _fireGroup;
 
+    public FireGroupEnum FireGroup => _fireGroup;
+
     private GameObject _fireInstancePrefab = default;
 
-    // クリップが再生される際のロジックを設定
+    private double _clipDuration = 1;
+
+    public double ClipDuration => _clipDuration;
+
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
-        var fireGroupTimelineHandle = Addressables.LoadAssetAsync<TimelineAsset>("FireGroupTimeline");
-
-        var fireGroupTimeline = fireGroupTimelineHandle.WaitForCompletion();
-        Addressables.Release(fireGroupTimelineHandle);
-
-        double clipTime = 0;
-        foreach (var track in fireGroupTimeline.GetRootTracks())
-        {
-            if (track.name == _fireGroup.ToString())
-            {
-                foreach (var child in track.GetChildTracks())
-                {
-                    if (child.GetMarkerCount() == 0) break;
-
-                    var marker = child.GetMarkers().Last();
-                    clipTime = marker.time;
-                    Debug.Log(clipTime);
-                }
-            }
-        }
-
-
         // ランタイム時のみ実行するように設定
         if (!Application.isPlaying)
         {
@@ -57,12 +40,36 @@ public class FireGroupClip : PlayableAsset
             PlayableDirector = playableDirector
         };
 
-        // Create the ScriptPlayable
-        var playable = ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
+        return ScriptPlayable<FireGroupBehaviour>.Create(graph, fireGroupBehaviour);
+    }
 
-        // Set the duration of the clip to clipTime
-        playable.SetDuration(clipTime);
+    public void LoadDuration()
+    {
+        var fireGroupTimelineHandle = Addressables.LoadAssetAsync<TimelineAsset>("FireGroupTimeline");
 
-        return playable;
+        var fireGroupTimeline = fireGroupTimelineHandle.WaitForCompletion();
+        Addressables.Release(fireGroupTimelineHandle);
+
+        foreach (var track in fireGroupTimeline.GetRootTracks())
+        {
+            if (track.name == _fireGroup.ToString())
+            {
+                foreach (var child in track.GetChildTracks())
+                {
+                    var markers = child.GetMarkers();
+
+                    if (markers.Any())
+                    {
+                        // 時間でソートし、最後のマーカーを取得
+                        var lastMarker = markers.OrderBy(marker => marker.time).Last();
+                        _clipDuration = lastMarker.time;
+                    }
+                    else
+                    {
+                        _clipDuration = 0;
+                    }
+                }
+            }
+        }
     }
 }
