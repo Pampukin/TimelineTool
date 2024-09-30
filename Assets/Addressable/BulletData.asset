@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0605512ab89cfda449d317d5e1fe87c0, type: 3}
   m_Name: BulletData
   m_EditorClassIdentifier: 
-  _speed: 10
-  _curvePower: 2
+  _speed: 3
+  _curvePower: 4
